@@ -1,0 +1,132 @@
+:host {
+  display: block;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(90deg, var(--primary) 0%, #004080 100%);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .logo img {
+    height: 70px;
+    display: block;
+  }
+
+  .desktop-nav {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      color: var(--white);
+      font-weight: 500;
+      font-size: 1.1rem;
+      text-decoration: none;
+      position: relative;
+      padding: 0.2rem 0;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #f0f0f0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .quote-btn {
+      background-color: var(--white);
+      color: var(--primary);
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+
+      span {
+        width: 24px;
+        height: 3px;
+        background-color: var(--white);
+        margin: 4px 0;
+        border-radius: 2px;
+      }
+
+      @media (max-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--primary);
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  &.open {
+    display: flex;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  a {
+    color: var(--white);
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}

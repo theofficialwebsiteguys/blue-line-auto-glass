@@ -1,0 +1,31 @@
+.marquee-wrapper {
+  overflow: hidden;
+  background-color: #111;
+  color: white;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.marquee-text {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-loop 15s linear infinite;
+  font-size: 18px;
+  will-change: transform;
+}
+
+.marquee-text span {
+  padding-right: 4rem; // spacing between loops
+}
+
+/* Seamless scroll loop */
+@keyframes marquee-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

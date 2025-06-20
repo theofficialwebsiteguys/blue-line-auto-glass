@@ -1,0 +1,45 @@
+<section
+  class="services-section"
+  [ngClass]="{ 'compact': services.length === 0 && !buttonLabel }"
+>
+
+  <div class="services-header">
+    <p class="section-label">{{ sectionLabel }}</p>
+    <h2>{{ sectionTitle }}</h2>
+    <p class="section-subtext">{{ sectionSubtext }}</p>
+  </div>
+
+  <div class="services-cards">
+    <div
+      class="service-card"
+      *ngFor="let service of services"
+      [class.clickable]="!!service.data"
+      (click)="service.data && onSelect(service.data)"
+    >
+    <div class="icon">
+      <ng-container *ngIf="isImage(service.icon); else otherIcon">
+        <img [src]="service.icon" alt="Service Icon" />
+      </ng-container>
+
+      <ng-template #otherIcon>
+        <ng-container *ngIf="isFontAwesome(service.icon); else emojiIcon">
+          <i [class]="service.icon"></i>
+        </ng-container>
+
+        <ng-template #emojiIcon>
+          {{ service.icon }}
+        </ng-template>
+      </ng-template>
+    </div>
+
+
+      <h3 [innerHTML]="service.title"></h3>
+      <p>{{ service.description }}</p>
+    </div>
+
+  </div>
+
+  <div class="services-buttons" *ngIf="buttonLabel">
+    <a [routerLink]="buttonLink" class="btn secondary">{{ buttonLabel }}</a>
+  </div>
+</section>

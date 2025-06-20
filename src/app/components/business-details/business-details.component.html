@@ -1,0 +1,63 @@
+  <!-- Coming Soon Banner -->
+  <!-- Mobile-Only Banner Text (above image) -->
+
+<section class="dispensary-container" aria-labelledby="business-details-heading">
+  <!-- Visually Hidden Heading for Assistive Technologies -->
+  <h2 id="business-details-heading" class="visually-hidden">Business Details</h2>
+  
+  <!-- Info Section -->
+  <div class="info-section">
+    <h2 class="title">Visit or Order From Home</h2>
+    <p class="description">
+      <strong>Contact Us &#64; <a href="tel:6022376130">(602) 237-6130</a> or Email <a href="mailto:travis@bluelineautoglass.com">travis&#64;bluelineautoglass.com</a></strong>
+    </p>
+  
+    <!-- Details Section -->
+    <div class="details-container">
+      <div class="detail-box">
+        <span class="detail-icon">
+          <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+        </span>
+        <div class="detail-text">
+          <h3>Hours</h3>
+          <p>Monday to Friday: <strong>8:00 AM – 5:00 PM</strong></p>
+          <p>Saturday: <strong>8:00 AM – 1:00 PM</strong></p>
+          <p>Sunday: <strong>Closed</strong></p>
+        </div>
+      </div>
+  
+      <div class="detail-box">
+        <span class="detail-icon">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        </span>
+        <div class="detail-text">
+          <h3>Address</h3>
+          <a href="https://maps.app.goo.gl/jfWGF6TaYhwRVm8R7" target="_blank" rel="noopener noreferrer">
+            5350 W Bell Rd Ste C122-494 Glendale, AZ 85308
+          </a>
+        </div>
+      </div>
+  
+      <div class="cta-box">
+        <h3>Looking for something special?</h3>
+        <p>
+          Have auto glass coverage? Let us take care of your windshield hassle-free with mobile service at no extra charge.
+        </p>
+        <a class="cta-button" routerLink="/contact">Contact Now</a>
+      </div>
+
+       
+    </div>
+  </div>
+  
+  <!-- Map Section -->
+  <div id="mapWrapper" class="map-section" aria-label="Map showing the location of Flower Power Dispensers">
+    <google-map
+      width="100%"
+      height="100%"
+      [center]="{lat: latitude, lng: longitude}"
+      [zoom]="zoom">
+      <map-marker [position]="{lat: latitude, lng: longitude}" title="Cannabis Dispensary"></map-marker>
+    </google-map>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+// _buttons.scss
+
+button{
+    display: inline-block;
+    background-color: var(--primary);
+    /* Green color for the button */
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+
+}
+
+button:hover {
+    background-color: #777777;
+}

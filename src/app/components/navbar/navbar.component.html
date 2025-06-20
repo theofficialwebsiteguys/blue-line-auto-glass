@@ -1,0 +1,37 @@
+<header class="navbar">
+  <div class="logo">
+    <a routerLink="/"><img src="assets/logo.png" alt="Blue Line Auto Glass" /></a>
+  </div>
+
+  <!-- Desktop Nav -->
+  <nav class="desktop-nav">
+    <a routerLink="/">Home</a>
+    <a routerLink="/about">About Us</a>
+    <a routerLink="/services">Services</a>
+    <a routerLink="/warranty">Warranty</a>
+    <a routerLink="/contact">Contact</a>
+  </nav>
+
+  <!-- CTA / Hamburger -->
+  <div class="cta">
+    <button class="quote-btn" routerLink="/contact">Get Quote</button>
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" [class.open]="mobileMenuOpen">
+  <button *ngIf="mobileMenuOpen" class="close-btn" (click)="toggleMenu()">&times;</button>
+  <a routerLink="/" (click)="toggleMenu()">Home</a>
+  <a routerLink="/about" (click)="toggleMenu()">About Us</a>
+  <a routerLink="/services" (click)="toggleMenu()">Services</a>
+  <a routerLink="/warranty" (click)="toggleMenu()">Warranty</a>
+  <a routerLink="/contact" (click)="toggleMenu()">Contact</a>
+</nav>
+
+<!-- Backdrop -->
+<div class="mobile-backdrop" [class.show]="mobileMenuOpen" (click)="toggleMenu()"></div>
