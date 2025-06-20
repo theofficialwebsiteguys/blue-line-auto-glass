@@ -1,7 +1,7 @@
 @use '../../../button';
 
 .hero-section {
-  background-image: url('/assets/hero-glass-repair.png'); /* Your background image */
+  background-image: url('../../../assets/hero-glass-repair.png'); /* Your background image */
   background-size: cover; /* Ensures the image covers the entire section */
   background-position: center top -100px;
   height: 80vh; /* Full viewport height to cover the screen */
