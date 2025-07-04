@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './marquee.component.scss'
 })
 export class MarqueeComponent {
-  @Input() text: string = 'Serving Glendale, AZ and Surrounding Areas • Veteran Owned & Operated • Same-Day Mobile Auto Glass Service • Lifetime Chip Repair Guarantee • Call (602) 237-6130';
+  @Input() text: string = 'Valleywide • Veteran Owned & Operated • Same-Day Mobile Auto Glass Service • Lifetime Chip Repair Guarantee • Call (602) 237-6130';
 
 
 }

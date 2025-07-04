@@ -50,4 +50,19 @@ h1, h2, p {
     background-size: cover; /* Ensure good fit on smaller devices */
     height: 100vh; /* Full viewport height on smaller screens */
   }
+
+  .title{
+    font-size: 2.8rem;
+  }
+
+  .hero-content {
+    padding: 15px;
+  }
+
+}
+
+.navbar-brand{
+  img{
+    margin: 25px;
+  }
 }
