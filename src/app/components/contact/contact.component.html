@@ -33,7 +33,14 @@
           required
         ></textarea>
       </div>
-      <button class="btn primary" type="submit">Submit Request</button>
+      <button class="btn primary" type="submit" [disabled]="submitted">
+        {{ submitted ? 'Submitting...' : 'Submit Request' }}
+      </button>
+
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
     </form>
 
     <!-- RIGHT: Contact Info + Map -->

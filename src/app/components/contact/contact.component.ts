@@ -16,8 +16,8 @@ export class ContactComponent {
   @ViewChild(GoogleMap) map!: GoogleMap;
   @ViewChild('mapWrapper', { static: false }) mapWrapper!: ElementRef;
 
-  latitude = 33.8487; // Replace with actual latitude
-  longitude = -84.31077; // Replace with actual longitude
+  latitude = 33.640028; // Replace with actual latitude
+  longitude = -112.174380; // Replace with actual longitude
   zoom = 14;
 
   successMessage: string = '';
@@ -60,18 +60,29 @@ export class ContactComponent {
   }
 
   onSubmit() {
-    this.submitted = true; // Set to true to show the spinner and disable the button
+    if (this.contactForm.invalid) return;
 
+    this.submitted = true;
     const formData = this.contactForm.value;
 
-    this.emailService.submitForm(formData)
-      .subscribe(response => {
+    this.emailService.submitForm(formData).subscribe({
+      next: (response) => {
         console.log('Form submitted successfully!', response);
-        this.successMessage = 'Your website template request has been submitted successfully!';
-        this.submitted = false; // Reset the submitted flag
-      }, error => {
+        this.successMessage = 'Your request has been sent! We’ll be in touch soon.';
+        this.contactForm.reset(); // ✅ Clear the form
+        this.submitted = false;
+
+        // Optionally clear message after 5 seconds
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 5000);
+      },
+      error: (error) => {
         console.error('Error submitting form', error);
-        this.submitted = false; // Reset the submitted flag
+        this.successMessage = 'There was an error. Please try again.';
+        this.submitted = false;
+      }
     });
   }
+
 }
