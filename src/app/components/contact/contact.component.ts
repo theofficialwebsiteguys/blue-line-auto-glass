@@ -1,24 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { EmailService } from '../../email.service';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule, GoogleMapsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
   contactForm!: FormGroup;
-
-  @ViewChild(GoogleMap) map!: GoogleMap;
-  @ViewChild('mapWrapper', { static: false }) mapWrapper!: ElementRef;
-
-  latitude = 33.640028; // Replace with actual latitude
-  longitude = -112.174380; // Replace with actual longitude
-  zoom = 14;
 
   successMessage: string = '';
   submitted: boolean = false;
@@ -33,30 +25,6 @@ export class ContactComponent {
       vehicle: ['', [Validators.required]],
       proposal: ['', [Validators.required]] // added proposal field here
     });
-  }
-
-  ngAfterViewInit() {
-    this.triggerMapResize();
-  }
-
-  @HostListener('window:resize')
-  triggerMapResize() {
-    setTimeout(() => {
-      if (this.map) {
-        this.map.googleMap?.setCenter({ lat: this.latitude, lng: this.longitude });
-      }
-
-      // ✅ Ensure mapWrapper is defined before modifying its styles
-      if (this.mapWrapper && this.mapWrapper.nativeElement) {
-        if (window.innerWidth <= 1024) {
-          this.mapWrapper.nativeElement.style.position = 'relative';
-          this.mapWrapper.nativeElement.style.marginTop = '200px';
-        } else {
-          this.mapWrapper.nativeElement.style.position = 'static';
-          this.mapWrapper.nativeElement.style.marginTop = '0';
-        }
-      }
-    }, 300);
   }
 
   onSubmit() {
